@@ -32,7 +32,10 @@ module.exports = defineConfig({
     specPattern: 'cypress/e2e/**/*.cy.js',
     supportFile: 'cypress/support/e2e.js',
     env: {
-      viewports: require('./cypress/constants/viewports'),
+      viewports: [
+        { name: 'desktop', width: 1280, height: 800 },
+        { name: 'mobile', width: 375, height: 667 },
+      ],
     },
     setupNodeEvents(on, config) {
       const envName = process.env.CYPRESS_ENV || 'stage';

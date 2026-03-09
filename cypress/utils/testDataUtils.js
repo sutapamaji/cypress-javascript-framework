@@ -68,7 +68,7 @@ function generateRandomName(prefix = 'User') {
     return `${prefix}${randomStr}`;
 }
 
-module.exports = {
+export {
     generateUniqueEmail,
     generateFakeEmail,
     generatePassword,

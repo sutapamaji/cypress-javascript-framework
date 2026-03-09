@@ -18,7 +18,7 @@ Cypress.Commands.add('loginViaApi', (email, password) => {
             cy.setCookie('token', response.body.token);
             window.localStorage.setItem('token', response.body.token);
         }
-        return response;
+        cy.wrap(response);
     });
 });
 

@@ -84,7 +84,11 @@ class ContactListPage {
      * @param {string} lastName - The last name of the contact
      */
     verifyContactNotExists(firstName, lastName) {
-        cy.get(this.contactTableRows).should('not.contain.text', `${firstName} ${lastName}`);
+        cy.get('body').then(($body) => {
+            if ($body.find(this.contactTableRows).length > 0) {
+                cy.get(this.contactTableRows).should('not.contain.text', `${firstName} ${lastName}`);
+            }
+        });
     }
 }
 

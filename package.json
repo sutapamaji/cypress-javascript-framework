@@ -1,0 +1,50 @@
+{
+  "name": "cypress-javascript-framework",
+  "version": "1.0.0",
+  "description": "Production-grade Cypress test automation framework — UI (Contact List App) + API (PokeAPI)",
+  "main": "cypress.config.js",
+  "scripts": {
+    "clean": "rm -rf reports/*.json reports/*.html reports/screenshots reports/videos || true",
+    "pretest:staging": "npm run clean",
+    "pretest:ui": "npm run clean",
+    "pretest:api": "npm run clean",
+    "test:staging": "CYPRESS_ENV=stage npx cypress run --browser chrome",
+    "test:staging:firefox": "CYPRESS_ENV=stage npx cypress run --browser firefox",
+    "test:staging:headed": "CYPRESS_ENV=stage npx cypress open --browser chrome",
+    "test:ui": "CYPRESS_ENV=stage npx cypress run --browser chrome --spec 'cypress/e2e/ui/**/*.cy.js'",
+    "test:api": "CYPRESS_ENV=stage npx cypress run --browser chrome --spec 'cypress/e2e/api/**/*.cy.js'",
+    "test:ui:firefox": "CYPRESS_ENV=stage npx cypress run --browser firefox --spec 'cypress/e2e/ui/**/*.cy.js'",
+    "test:api:firefox": "CYPRESS_ENV=stage npx cypress run --browser firefox --spec 'cypress/e2e/api/**/*.cy.js'",
+    "test:ui:chunk1": "CYPRESS_ENV=stage SPLIT=2 SPLIT_INDEX=0 npx cypress run --browser chrome --spec 'cypress/e2e/ui/**/*.cy.js'",
+    "test:ui:chunk2": "CYPRESS_ENV=stage SPLIT=2 SPLIT_INDEX=1 npx cypress run --browser chrome --spec 'cypress/e2e/ui/**/*.cy.js'",
+    "test:ui:parallel": "npx concurrently \"npm run test:ui:chunk1\" \"npm run test:ui:chunk2\"",
+    "report:merge": "npx mochawesome-merge reports/*.json > reports/merged-report.json",
+    "report:generate": "npx marge reports/merged-report.json --reportDir reports --reportFilename test-report --reportTitle 'Cypress Test Report' --reportPageTitle 'Cypress Test Report' --inline",
+    "report:all": "npm run report:merge && npm run report:generate",
+    "report:open": "open reports/test-report.html",
+    "test:full": "npm run test:staging && npm run report:all",
+    "lint": "eslint cypress/**/*.js",
+    "lint:fix": "eslint cypress/**/*.js --fix",
+    "cy:open": "npx cypress open"
+  },
+  "keywords": [
+    "cypress",
+    "testing",
+    "automation",
+    "e2e",
+    "api"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "cypress": "^15.11.0",
+    "cypress-split": "^1.24.28",
+    "eslint": "^8.57.0",
+    "eslint-plugin-cypress": "^2.15.1",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.3.0",
+    "mochawesome-report-generator": "^6.2.0",
+    "prettier": "^3.2.5"
+  }
+}

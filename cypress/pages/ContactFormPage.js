@@ -1,43 +1,22 @@
-const SELECTORS = {
-    firstNameInput: '#firstName',
-    lastNameInput: '#lastName',
-    birthdateInput: '#birthdate',
-    emailInput: '#email',
-    phoneInput: '#phone',
-    street1Input: '#street1',
-    street2Input: '#street2',
-    cityInput: '#city',
-    stateProvinceInput: '#stateProvince',
-    postalCodeInput: '#postalCode',
-    countryInput: '#country',
-    submitButton: '#submit',
-    cancelButton: '#cancel',
-    editContactButton: '#edit-contact',
-    deleteContactButton: '#delete',
-    returnButton: '#return',
-    errorMessage: '#error',
-};
-
 class ContactFormPage {
     constructor() {
-        this.firstNameInput = SELECTORS.firstNameInput;
-        this.lastNameInput = SELECTORS.lastNameInput;
-        this.birthdateInput = SELECTORS.birthdateInput;
-        this.emailInput = SELECTORS.emailInput;
-        this.phoneInput = SELECTORS.phoneInput;
-        this.street1Input = SELECTORS.street1Input;
-        this.street2Input = SELECTORS.street2Input;
-        this.cityInput = SELECTORS.cityInput;
-        this.stateProvinceInput = SELECTORS.stateProvinceInput;
-        this.postalCodeInput = SELECTORS.postalCodeInput;
-        this.countryInput = SELECTORS.countryInput;
-
-        this.submitButton = SELECTORS.submitButton;
-        this.cancelButton = SELECTORS.cancelButton;
-        this.editContactButton = SELECTORS.editContactButton;
-        this.deleteContactButton = SELECTORS.deleteContactButton;
-        this.returnButton = SELECTORS.returnButton;
-        this.errorMessage = SELECTORS.errorMessage;
+        this.firstNameInput = '#firstName';
+        this.lastNameInput = '#lastName';
+        this.birthdateInput = '#birthdate';
+        this.emailInput = '#email';
+        this.phoneInput = '#phone';
+        this.street1Input = '#street1';
+        this.street2Input = '#street2';
+        this.cityInput = '#city';
+        this.stateProvinceInput = '#stateProvince';
+        this.postalCodeInput = '#postalCode';
+        this.countryInput = '#country';
+        this.submitButton = '#submit';
+        this.cancelButton = '#cancel';
+        this.editContactButton = '#edit-contact';
+        this.deleteContactButton = '#delete';
+        this.returnButton = '#return';
+        this.errorMessage = '#error';
     }
 
     /**
